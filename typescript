@@ -1,0 +1,142 @@
+Script started on Sun Feb 20 21:32:43 2022
+Restored session: Sun Feb 20 21:32:40 EST 2022
+[1m[7m%[27m[1m[0m                                                                                             ]7;file://affans-MacBook-Air.local/Users/affanmoyeed/desktop/assignment[0m[27m[24m[Jaffanmoyeed@affans-MacBook-Air assignment % [K[?2004hvvi hoc.y[?2004l
+[?1049h[>4;2m[?1h=[?2004h[?1004h[1;33r[?12h[?12l[22;2t[22;1t[27m[29m[m[H[2J[?25l[33;1H"hoc.y" 73L, 1431B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[1;1H%{
+#define YYSTYPE double  /* data type of yacc stack */[2;54H[K[3;1H%}[3;3H[K[4;1H%token  NUMBER
+%left   '+' '-'   /* left associative, same precedence */
+%left   '*' '/'   /* left assoc., higher precedence */
+%left   UNARYPLUS
+%right  '^'
+%left   UNARYMINUS
+%left   '%'
+%%
+list:     /* nothing */[13;9H| list '\n'[14;9H| list expr '\n'    { printf("\t%.8g\n", $2); }[15;9H;
+expr:     NUMBER[8C{ $$ = $1; }[17;9H| expr '+' expr { $$ = $1 + $3; }[18;9H| expr '-' expr { $$ = $1 - $3; }[19;9H| expr '*' expr { $$ = $1 * $3; }[20;9H| expr '/' expr { $$ = $1 / $3; }[21;9H| '(' expr ')'  { $$ = $2; }[22;9H| expr '%' expr { $$ = (int)$1 % (int)$3; }[23;9H| expr '^' expr { $$ = pow($1,$3); }[24;9H| '-' expr  %prec UNARYMINUS { $$ = -$2; }[25;9H| '+' expr  %prec UNARYPLUS { $$ = +$2; }[26;9H;
+%%[28;9H/* end of grammar */
+
+#include <stdio.h>
+#include <ctype.h>
+char    *progname;      /* for error messages */[1;1H[?25h[27m[29m[m[H[2J[?25l[1;1H%{
+#define YYSTYPE double  /* data type of yacc stack */
+%}
+%token  NUMBER
+%left   '+' '-'   /* left associative, same precedence */
+%left   '*' '/'   /* left assoc., higher precedence */
+%left   UNARYPLUS
+%right  '^'
+%left   UNARYMINUS
+%left   '%'
+%%
+list:     /* nothing */[13;9H| list '\n'[14;9H| list expr '\n'    { printf("\t%.8g\n", $2); }[15;9H;
+expr:     NUMBER[8C{ $$ = $1; }[17;9H| expr '+' expr { $$ = $1 + $3; }[18;9H| expr '-' expr { $$ = $1 - $3; }[19;9H| expr '*' expr { $$ = $1 * $3; }[20;9H| expr '/' expr { $$ = $1 / $3; }[21;9H| '(' expr ')'  { $$ = $2; }[22;9H| expr '%' expr { $$ = (int)$1 % (int)$3; }[23;9H| expr '^' expr { $$ = pow($1,$3); }[24;9H| '-' expr  %prec UNARYMINUS { $$ = -$2; }[25;9H| '+' expr  %prec UNARYPLUS { $$ = +$2; }[26;9H;
+%%[28;9H/* end of grammar */
+
+#include <stdio.h>
+#include <ctype.h>
+char    *progname;      /* for error messages */
+"hoc.y" 73L, 1431B[1;1H[?25h
+
+
+
+
+
+
+
+
+
+
+[13;8H[14;8H[15;8H[?25l[33;1H[K[33;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[33;1H[K[33;1H[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[1m[7m%[27m[1m[0m                                                                                             ]7;file://affans-MacBook-Air.local/Users/affanmoyeed/desktop/assignment[0m[27m[24m[Jaffanmoyeed@affans-MacBook-Air assignment % [K[?2004hvi hoc.y[8Dexit    vi hoc1exit   yacc hoc.y[?2004l
+[1m[7m%[27m[1m[0m                                                                                             ]7;file://affans-MacBook-Air.local/Users/affanmoyeed/desktop/assignment[0m[27m[24m[Jaffanmoyeed@affans-MacBook-Air assignment % [K[?2004hyacc hoc.y[10Dvi hoc.y  [8Dexit    vi hoc1exit   yacc hoc.y[10D.hoc1     ./hocvi hoc1cd assignment[10Duntitled folder[18Dls                [16Dcd untitled folder[18Dlsmod             [13D mod[9Dmod      frexp(3)3  script./hoc vi hoc.y[8Dcd[4C1 desktop[10D/Users/affanmoyeed/Desktop/hoc1/untitled\ folder/hoc1 ; exit;[K[A[32Cexit[K[1B[K[A[48C./hocgcc -o hoc y.tab.c[18Dyacc hoc.y        [8D[10Dgcc -o hoc y.tab.c[?2004l[1B[01m[Ky.tab.c:[m[K In function '[01m[Kyyparse[m[K':
+[01m[Ky.tab.c:597:16:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function '[01m[Kyylex[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+  597 | # define YYLEX [01;35m[Kyylex[m[K ()
+      |                [01;35m[K^~~~~[m[K
+[01m[Ky.tab.c:1241:16:[m[K [01;36m[Knote: [m[Kin expansion of macro '[01m[KYYLEX[m[K'
+ 1241 |       yychar = [01;36m[KYYLEX[m[K;
+      |                [01;36m[K^~~~~[m[K
+[01m[Khoc.y:14:14:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function '[01m[Kprintf[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+   14 |         | lis[01;35m[Kt expr[m[K '\n'    { printf("\t%.8g\n", $2); }
+      |              [01;35m[K^~~~~~[m[K
+[01m[Khoc.y:1:1:[m[K [01;36m[Knote: [m[Kinclude '[01m[K<stdio.h>[m[K' or provide a declaration of '[01m[Kprintf[m[K'
+  +++ |+[32m[K#include <stdio.h>[m[K
+    1 | %{
+[01m[Khoc.y:14:14:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function '[01m[Kprintf[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbuiltin-declaration-mismatch-Wbuiltin-declaration-mismatch]8;;[m[K]
+   14 |         | lis[01;35m[Kt expr[m[K '\n'    { printf("\t%.8g\n", $2); }
+      |              [01;35m[K^~~~~~[m[K
+[01m[Khoc.y:14:14:[m[K [01;36m[Knote: [m[Kinclude '[01m[K<stdio.h>[m[K' or provide a declaration of '[01m[Kprintf[m[K'
+[01m[Khoc.y:23:24:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function '[01m[Kpow[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+   23 |         | expr '^' expr[01;35m[K { [m[K$$ = pow($1,$3); }
+      |                        [01;35m[K^~~[m[K
+[01m[Khoc.y:1:1:[m[K [01;36m[Knote: [m[Kinclude '[01m[K<math.h>[m[K' or provide a declaration of '[01m[Kpow[m[K'
+  +++ |+[32m[K#include <math.h>[m[K
+    1 | %{
+[01m[Khoc.y:23:24:[m[K [01;35m[Kwarning: [m[Kincompatible implicit declaration of built-in function '[01m[Kpow[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wbuiltin-declaration-mismatch-Wbuiltin-declaration-mismatch]8;;[m[K]
+   23 |         | expr '^' expr[01;35m[K { [m[K$$ = pow($1,$3); }
+      |                        [01;35m[K^~~[m[K
+[01m[Khoc.y:23:24:[m[K [01;36m[Knote: [m[Kinclude '[01m[K<math.h>[m[K' or provide a declaration of '[01m[Kpow[m[K'
+[01m[Ky.tab.c:1414:7:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function '[01m[Kyyerror[m[K'; did you mean '[01m[Kyyerrok[m[K'? [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+ 1414 |       [01;35m[Kyyerror[m[K (YY_("syntax error"));
+      |       [01;35m[K^~~~~~~[m[K
+      |       [32m[Kyyerrok[m[K
+[01m[Khoc.y:[m[K At top level:
+[01m[Khoc.y:35:1:[m[K [01;35m[Kwarning: [m[Kreturn type defaults to '[01m[Kint[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-int-Wimplicit-int]8;;[m[K]
+   35 | [01;35m[Kmain[m[K(argc, argv)        /* hoc1 */
+      | [01;35m[K^~~~[m[K
+[01m[Khoc.y:[m[K In function '[01m[Kmain[m[K':
+[01m[Khoc.y:35:1:[m[K [01;35m[Kwarning: [m[Ktype of '[01m[Kargc[m[K' defaults to '[01m[Kint[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-int-Wimplicit-int]8;;[m[K]
+[01m[Khoc.y:[m[K At top level:
+[01m[Khoc.y:42:1:[m[K [01;35m[Kwarning: [m[Kreturn type defaults to '[01m[Kint[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-int-Wimplicit-int]8;;[m[K]
+   42 | [01;35m[Kyylex[m[K()         /* hoc1 */
+      | [01;35m[K^~~~~[m[K
+[01m[Khoc.y:60:1:[m[K [01;35m[Kwarning: [m[Kreturn type defaults to '[01m[Kint[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-int-Wimplicit-int]8;;[m[K]
+   60 | [01;35m[Kyyerror[m[K(s)      /* called for yacc syntax error */
+      | [01;35m[K^~~~~~~[m[K
+[01m[Khoc.y:[m[K In function '[01m[Kyyerror[m[K':
+[01m[Khoc.y:63:9:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function '[01m[Kwarning[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+   63 |         [01;35m[Kwarning[m[K(s, (char *) 0);
+      |         [01;35m[K^~~~~~~[m[K
+[01m[Khoc.y:[m[K At top level:
+[01m[Khoc.y:66:1:[m[K [01;35m[Kwarning: [m[Kreturn type defaults to '[01m[Kint[m[K' [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wimplicit-int-Wimplicit-int]8;;[m[K]
+   66 | [01;35m[Kwarning[m[K(s, t)   /* print warning message */
+      | [01;35m[K^~~~~~~[m[K
+[1m[7m%[27m[1m[0m                                                                                             ]7;file://affans-MacBook-Air.local/Users/affanmoyeed/desktop/assignment[0m[27m[24m[Jaffanmoyeed@affans-MacBook-Air assignment % [K[?2004h../hoc[?2004l
+3+2^4/8*5-45/9*4
+	-7
+3+2^(4/8)*5-45/9*4
+	-9.9289322
+3+2^4/8*(5-45)/9*4
+	-32.555556
+10-5-3
+	2
+10-5+3
+	8
+2^3^2
+	512
+-3^2
+	9
+2^0.
+	1
+2^0.5
+	1.4142136
+2^-3
+	0.125
+29%5%3
+	1
+-29%5%3
+	-1
+7%-5
+	2
+25^0.5%2
+	1
+7%-5/2
+	1
+7%-5^0.5
+	1.4142136
+:q
+./hoc: syntax error near line 17
+[1m[7m%[27m[1m[0m                                                                                             ]7;file://affans-MacBook-Air.local/Users/affanmoyeed/desktop/assignment[0m[27m[24m[Jaffanmoyeed@affans-MacBook-Air assignment % [K[?2004heexit[?2004l
+
+Saving session...
+...saving history...truncating history files...
+...completed.
+
+Script done on Sun Feb 20 21:36:08 2022
